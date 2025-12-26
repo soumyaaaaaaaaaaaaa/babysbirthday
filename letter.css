@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#fff5f8,#ffeef4);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;     /* center vertically */
+  padding: 24px 16px;
+  text-align: center;
+}
+
+
+.title {
+  color: #ff4d88;
+  margin: 6px 0 14px;
+  font-size: 22px;
+}
+
+.letter-box {
+  background: white;
+  padding: 18px 16px 20px;
+  border-radius: 22px;
+  width: 92%;
+  max-width: 340px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.18);
+  position: relative;
+  animation: pop 0.8s ease;
+  /* REMOVE this so cat can sit outside */
+  /* overflow: hidden; */
+}
+
+.cat {
+  position: absolute;
+  top: -40px;      /* a bit higher out of the box */
+  right: -10px;    /* a bit more outside */
+  width: 70px;
+  max-width: 22vw;
+  animation: bounce 2s infinite;
+}
+
+
+#typing {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.sign {
+  margin-top: 14px;
+  color: #ff4d88;
+  text-align: right;
+}
+
+@keyframes pop {
+  from { transform: scale(.9); opacity: 0; }
+  to   { transform: scale(1);  opacity: 1; }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+
+.continue-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 26px;
+  background: #ff85b3;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 9px 20px rgba(255,133,179,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.continue-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(255,133,179,0.6);
+}
+
+/* small phones */
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+
+  #typing {
+    font-size: 14px;
+  }
+
+  .letter-box {
+    max-width: 320px;
+  }
+
+  .cat {
+    width: 64px;
+  }
+
+  .continue-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Some from my playlisttttt 🎶</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="playlist.css">
+</head>
+<body>
+
+  <h2 class="title">Some from my playlisttttt 🎵</h2>
+  <p class="subtitle">idk what to add soo i added this 😭✨</p>
+
+  <!-- Audio Player Box -->
+  <div class="player" id="player">
+    <p id="songName">Tappppp on songsss 💖</p>
+    <audio id="audio"></audio>
+  </div>
+
+  <!-- Slider -->
+  <div class="slider">
+    <button class="nav left" onclick="prev()">‹</button>
+
+    <div class="card" data-src="song1.mp3" data-name="Be My Baby">
+      <div class="img-wrap">
+        <img src="song1.png" class="song-img">
+        <div class="play-icon"></div>
+      </div>
+      <h4>Be My Baby</h4>
+      <p>✨</p>
+    </div>
+
+    <div class="card hidden" data-src="song2.mp3" data-name="Glue Song">
+      <div class="img-wrap">
+        <img src="song2.png" class="song-img">
+        <div class="play-icon"></div>
+      </div>
+      <h4>Glue Song</h4>
+      <p>💕</p>
+    </div>
+
+    <div class="card hidden" data-src="song3.mp3" data-name="I Think They Call This Love">
+      <div class="img-wrap">
+        <img src="song3.png" class="song-img">
+        <div class="play-icon"></div>
+      </div>
+      <h4>I Think They Call This Love</h4>
+      <p>💖</p>
+    </div>
+
+    <button class="nav right" onclick="next()">›</button>
+  </div>
+
+  <button class="continue-btn" onclick="goNext()">Continue to Birthday Surprises ✨</button>
+
+  <script src="playlist.js"></script>
+</body>
+</html>

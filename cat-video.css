@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* background + layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 28px;
+  text-align: center;
+  background: radial-gradient(circle at top, #ffeaf5 0, #ffe4f0 40%, #ffdbe8 70%, #ffcfdf 100%);
+}
+
+.title {
+  color: #ff5fa2;
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.subtitle {
+  color: #9c8a9a;
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+
+/* main card */
+.card {
+  position: relative;
+  background: linear-gradient(180deg,#fffafc,#fff2e6);
+  border-radius: 26px;
+  padding: 20px 18px 18px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(255, 80, 140, 0.26);
+}
+
+/* video box */
+.video-box {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #ffc2d8;
+  position: relative;
+  cursor: pointer;
+}
+
+.video-box video {
+  width: 100%;
+  display: block;
+}
+
+/* play / pause overlay icon */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.play-overlay::before,
+.play-overlay::after {
+  content: "";
+  background: rgba(0,0,0,0.55);
+  border-radius: 999px;
+  width: 54px;
+  height: 54px;
+  display: none;
+}
+
+.play-overlay::after {
+  position: absolute;
+  mask-repeat: no-repeat;
+}
+
+/* default: show play icon */
+.card.paused .play-overlay::before,
+.card.paused .play-overlay::after {
+  display: block;
+}
+
+.card.paused .play-overlay::after {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid #fff;
+  transform: translateX(2px);
+}
+
+/* when playing: little pause bars */
+.card.playing .play-overlay::before,
+.card.playing .play-overlay::after {
+  display: none;
+}
+
+/* caption */
+.caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+@keyframes wiggle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25%      { transform: translateY(-4px) rotate(-4deg); }
+  50%      { transform: translateY(0) rotate(2deg); }
+  75%      { transform: translateY(-3px) rotate(-2deg); }
+}
+
+/* continue button */
+.continue-btn {
+  margin-top: 24px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  background: #ff5fa2;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(255,133,179,0.45);
+}
+
+/* small phones */
+@media (max-width: 480px) {
+  .card {
+    max-width: 340px;
+  }
+}

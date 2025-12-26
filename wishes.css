@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* background + layout */
+body {
+  background: linear-gradient(#fff7fb, #fff);
+  text-align: center;
+  padding: 22px 16px 28px;
+}
+
+.title {
+  color: #ff5fa2;
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.subtitle {
+  color: #777;
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+/* cards container: one column stack */
+.cards {
+  display: flex;
+  flex-direction: column;     /* stack vertically */
+  align-items: center;
+  gap: 18px;                  /* space between cards */
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 320px;           /* good size on mobile */
+  height: 190px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+/* FRONT */
+.card-front {
+  background: #ffe4ef;
+  overflow: hidden;
+}
+
+.card-front video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* BACK */
+.card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  flex-direction: column;
+}
+
+.card-back p {
+  font-size: 15px;
+  color: #444;
+}
+
+.card-back span {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #ff5fa2;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup-box {
+  background: #ffffff;
+  padding: 26px 22px;
+  border-radius: 22px;
+  width: 90%;
+  max-width: 320px;
+  animation: pop 0.4s ease;
+}
+
+.popup-box h2 {
+  color: #ff5fa2;
+  margin-top: 8px;
+}
+
+.popup-box p {
+  color: #555;
+}
+
+.popup-box button {
+  margin-top: 14px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 30px;
+  background: #ff5fa2;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.popup-box small {
+  display: block;
+  margin-top: 10px;
+  color: #aaa;
+}
+
+.emoji {
+  font-size: 32px;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* small screens tweaks */
+@media (max-width: 480px) {
+  .card {
+    max-width: 300px;
+    height: 180px;
+  }
+
+  .card-back p {
+    font-size: 14px;
+  }
+}
